@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Javascript</title>
+    <script>
+        function validar() {
+            var nome = document.getElementById('edtNome').value;
+            var telefone = document.getElementById('edtTelefone').value;
+            var cep = document.getElementById('edtCep').value;
+            var estado = document.getElementById('edtEstado').value;
+            var rg = document.getElementById('edtRG').value;
+            var cpf = document.getElementById('edtCPF').value;
+
+            if (nome === "") {
+                alert("O campo nome está vazio");
+            }
+            if (telefone == "") {
+                alert("O campo telefone está vazio");
+            }
+            if (cep == "") {
+                alert("O campo CEP está vazio");
+            }
+            if (rg !== "") {
+                var tamanhoRG = rg.replace(/[^\d]/g, '').length;
+                if (tamanhoRG !== 9) {
+                    alert("O campo RG está preenchido de maneira errada");
+                }
+            }
+            else {
+                alert("o campo RG etsá vazio")
+            }
+            if (cpf !== "") {
+                var tamanhoCPF = cpf.replace(/[^\d]/g, '').length;
+                if (tamanhoCPF !== 11) {
+                    alert("O campo CPF está preenchido de maneira errada"); 
+                }
+            }
+            else{
+            alert("o campo CPF está vazio")
+            }
+            if (estado == 0) {
+                alert("Selecione um estado")
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row">
+        <form name="cadastrar" id="cadastrar" method="POST" action="">
+            <div class="col"> <input type="text" name="edtNome" id="edtNome" placeholder="Seu nome aqui"></div>
+            <div class="col"><input type="text" name="edtTelefone" id="edtTelefone" placeholder="Seu telefone aqui"></div>
+            <div class="col"><input type="text" name="edtCep" id="edtCep" placeholder="Seu CEP aqui"></div>
+            <label for="GroupExampleInput" class="input-label">Se possivel escreva da seguinte maneira:  00.000.000-X</label>
+            <div class="col"><input type="text" name="edtRG" id="edtRG" placeholder="Seu RG aqui"></div>
+            <label for="GroupExampleInput" class="input-label">Se possivel escreva da seguinte maneira: 000.000.000-00</label>
+            <div class="col"><input type="text" name="edtCPF" id="edtCPF" placeholder="Seu CPF aqui"></div>
+            <div class="col"><select name="edtEstado" id="edtEstado">
+                <option value="0">Selecione um estado</option>
+                <option value="1">AC</option>
+                <option value="2">AL</option>
+                <option value="3">AP</option>
+                <option value="4">AM</option>
+                <option value="5">BA</option>
+                <option value="6">CE</option>
+                <option value="7">DF</option>
+                <option value="8">ES</option>
+                <option value="9">GO</option>
+                <option value="10">MA</option>
+                <option value="11">MT</option>
+                <option value="12">MS</option>
+                <option value="13">MG</option>
+                <option value="14">PA</option>
+                <option value="15">PB</option>
+                <option value="16">PR</option>
+                <option value="17">PE</option>
+                <option value="18">PI</option>
+                <option value="19">RJ</option>
+                <option value="20">RN</option>
+                <option value="21">RS</option>
+                <option value="22">RO</option>
+                <option value="23">RR</option>
+                <option value="24">SC</option>
+                <option value="25">SP</option>
+                <option value="26">SE</option>
+                <option value="27">TO</option>
+            </select></div>
+            <input type="submit" name="btnCadastrar" value="Cadastrar" onclick="validar();">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
